@@ -27,5 +27,7 @@ func main() {
 	si := d2.IInvoke(a.Name()).(*service.A)
 	si.Print(1024)
 	li := d2.IInvoke(l2.Name()).(*service.MyLogger)
-	li.Print()
+	li.Info("info message")
+	li.Debug("debug message")
+	li.Error("error message")
 }
