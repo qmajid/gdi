@@ -22,19 +22,6 @@ func (a A) Print(n int) {
 	fmt.Printf("A::Print -> %v\n", n)
 }
 
-// -----------------
-type B struct {
-	// name string
-}
-
-func (b B) Print() {
-	fmt.Printf("B-> %+v\n", b)
-}
-
-func (b B) Name() string {
-	return "B"
-}
-
 //----------------
 
 type MyLogger struct {
