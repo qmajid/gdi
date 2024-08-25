@@ -69,14 +69,4 @@ func main() {
 	// d.Provide(log.New(os.Stdout, "majid ", 0))
 	l := di.Invoke[log.Logger](d)
 	l.Printf("hello di")
-
-	// s := service.NewServicePool()
-	// s.Register(service.A{Number: 100})
-	// s.Register(service.B{Name: "majid"})
-
-	// a := service.Lookup[service.A](s)
-	// a.Print()
-
-	// b := service.Lookup[service.B](s)
-	// b.Print()
 }
