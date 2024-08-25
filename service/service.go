@@ -38,15 +38,18 @@ func (b B) Name() string {
 //----------------
 
 type MyLogger struct {
-	*log.Logger
+	l *log.Logger
 }
 
-func New() *MyLogger {
-	m := MyLogger{log.New(os.Stdout, "majid ", 0)}
-	// m.l = log.New(os.Stdout, "majid ", 0)
+func NewLogger() *MyLogger {
+	m := MyLogger{l: log.New(os.Stdout, "majid: ", 0)}
 	return &m
 }
 
 func (l MyLogger) Name() string {
 	return "MyLogger"
+}
+
+func (l MyLogger) Print() {
+	l.l.Printf("pring from logger\n")
 }
