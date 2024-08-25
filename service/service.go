@@ -7,15 +7,15 @@ import (
 )
 
 type Service interface {
-	Do()
+	Name() string
 }
 
 type A struct {
 	Number int
 }
 
-func (a A) Do() {
-	fmt.Printf("call Do in A -> %+v\n", a)
+func (a A) Name() string {
+	return "A"
 }
 
 func (a A) Print(n int) {
@@ -24,15 +24,15 @@ func (a A) Print(n int) {
 
 // -----------------
 type B struct {
-	Name string
+	// name string
 }
 
 func (b B) Print() {
 	fmt.Printf("B-> %+v\n", b)
 }
 
-func (b B) Do() {
-	fmt.Printf("call Do in B -> %+v\n", b)
+func (b B) Name() string {
+	return "B"
 }
 
 //----------------
@@ -47,6 +47,6 @@ func New() *MyLogger {
 	return &m
 }
 
-func (l MyLogger) Do() {
-	fmt.Printf("call Do in MyLogger\n")
+func (l MyLogger) Name() string {
+	return "MyLogger"
 }
