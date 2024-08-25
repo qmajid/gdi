@@ -6,10 +6,12 @@ import (
 	"os"
 )
 
+// --------------------- INTERFACE
 type Service interface {
 	Name() string
 }
 
+// --------------------- CONCRETE STRUCTS
 type A struct {
 	Number int
 }
@@ -28,13 +30,13 @@ type MyLogger struct {
 	l *log.Logger
 }
 
+func (l MyLogger) Name() string {
+	return "MyLogger"
+}
+
 func NewLogger() *MyLogger {
 	m := MyLogger{l: log.New(os.Stdout, "majid: ", 0)}
 	return &m
-}
-
-func (l MyLogger) Name() string {
-	return "MyLogger"
 }
 
 func (l MyLogger) Print() {
