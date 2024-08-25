@@ -1,7 +1,6 @@
 package di
 
 import (
-	"fmt"
 	"test/service"
 )
 
@@ -19,13 +18,13 @@ func INew() *idi {
 
 func (s *idi) IProvide(inst iservice) *idi {
 	name := inst.Name()
-	s.m[inst.Name()] = inst
-	fmt.Printf("di Provide name:[%v]\n", name)
+	s.m[name] = inst
+	// fmt.Printf("di Provide name:[%v]\n", name)
 	return s
 }
 
 func (s *idi) IInvoke(name string) iservice {
-	fmt.Printf("di Invoke name:[%v]\n", name)
+	// fmt.Printf("di Invoke name:[%v]\n", name)
 	return s.m[name]
 	// reflect.ValueOf(inst).MethodByName("Print").Call([]reflect.Value{})
 	// return &inst

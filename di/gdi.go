@@ -1,7 +1,6 @@
 package di
 
 import (
-	"fmt"
 	"reflect"
 )
 
@@ -26,14 +25,14 @@ func structName(i any) string {
 func (s *gdi) Provide(inst any) *gdi {
 	name := structName(inst)
 	s.m[name] = inst
-	fmt.Printf("di Provide name:[%v]\n", name)
+	// fmt.Printf("di Provide name:[%v]\n", name)
 	return s
 }
 
 func Invoke[T any](s *gdi) *T {
 	var inst T
 	name := structName(inst)
-	fmt.Printf("di Invoke name:[%v]\n", name)
+	// fmt.Printf("di Invoke name:[%v]\n", name)
 	return s.m[name].(*T)
 	// reflect.ValueOf(inst).MethodByName("Print").Call([]reflect.Value{})
 	// return &inst

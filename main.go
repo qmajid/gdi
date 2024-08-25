@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-
+	//-------------Generic DI
 	d := di.GNew()
 	d.Provide(new(service.A)).Provide(log.New(os.Stdout, "majid ", 0))
 	sa := di.Invoke[service.A](d)
@@ -18,7 +18,7 @@ func main() {
 	l := di.Invoke[log.Logger](d)
 	l.Printf("hello di")
 
-	//-------------IDI
+	//-------------Interface DI
 	fmt.Print("------------ di with interface ------------ \n")
 	d2 := di.INew()
 	a := new(service.A)
