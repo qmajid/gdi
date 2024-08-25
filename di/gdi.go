@@ -4,6 +4,8 @@ import (
 	"reflect"
 )
 
+// dependency injection by generic 
+
 type gdi struct {
 	m map[string]interface{}
 }

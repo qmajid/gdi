@@ -4,6 +4,8 @@ import (
 	"test/service"
 )
 
+// dependency injection by interface
+
 type iservice service.Service
 
 type idi struct {
