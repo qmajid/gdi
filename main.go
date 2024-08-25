@@ -10,7 +10,7 @@ import (
 
 func main() {
 
-	d := di.New()
+	d := di.GNew()
 	d.Provide(new(service.A)).Provide(log.New(os.Stdout, "majid ", 0))
 	sa := di.Invoke[service.A](d)
 	sa.Print(1234)

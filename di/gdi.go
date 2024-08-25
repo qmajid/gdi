@@ -9,7 +9,7 @@ type gdi struct {
 	m map[string]interface{}
 }
 
-func New() *gdi {
+func GNew() *gdi {
 	s := new(gdi)
 	s.m = make(map[string]interface{})
 	return s
