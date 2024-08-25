@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"os"
 	"test/di"
 	"test/service"
 )
@@ -11,12 +9,12 @@ import (
 func main() {
 	//-------------Generic DI
 	d := di.GNew()
-	d.Provide(new(service.A)).Provide(log.New(os.Stdout, "majid ", 0))
+	d.Provide(new(service.A)).Provide(service.NewLogger())
 	sa := di.Invoke[service.A](d)
 	sa.Print(1234)
 
-	l := di.Invoke[log.Logger](d)
-	l.Printf("hello di")
+	l := di.Invoke[service.MyLogger](d)
+	l.Info("hello di")
 
 	//-------------Interface DI
 	fmt.Print("------------ di with interface ------------ \n")
