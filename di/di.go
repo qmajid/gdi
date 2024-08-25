@@ -5,12 +5,12 @@ import (
 	"reflect"
 )
 
-type diRegistery struct {
+type gdi struct {
 	m map[string]interface{}
 }
 
-func New() *diRegistery {
-	s := new(diRegistery)
+func New() *gdi {
+	s := new(gdi)
 	s.m = make(map[string]interface{})
 	return s
 }
@@ -23,14 +23,14 @@ func structName(i any) string {
 	}
 }
 
-func (s *diRegistery) Provide(inst any) *diRegistery {
+func (s *gdi) Provide(inst any) *gdi {
 	name := structName(inst)
 	s.m[name] = inst
 	fmt.Printf("di Provide name:[%v]\n", name)
 	return s
 }
 
-func Invoke[T any](s *diRegistery) *T {
+func Invoke[T any](s *gdi) *T {
 	var inst T
 	name := structName(inst)
 	fmt.Printf("di Invoke name:[%v]\n", name)
