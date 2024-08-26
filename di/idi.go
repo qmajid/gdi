@@ -19,13 +19,15 @@ func INew() *idi {
 func (s *idi) IProvide(inst iservice) *idi {
 	name := inst.Name()
 	s.m[name] = inst
-	// fmt.Printf("di Provide name:[%v]\n", name)
 	return s
 }
 
 func (s *idi) IInvoke(name string) iservice {
-	// fmt.Printf("di Invoke name:[%v]\n", name)
-	return s.m[name]
+	dep, ok := s.m[name]
+	if !ok {
+		return nil
+	}
+	return dep
+
 	// reflect.ValueOf(inst).MethodByName("Print").Call([]reflect.Value{})
-	// return &inst
 }
