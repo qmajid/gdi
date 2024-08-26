@@ -33,7 +33,8 @@ type ILogger interface {
 	Error(s string)
 }
 
-type ConcreteLogger = MyLogger
+// type MyInt int              // Type definition
+type ConcreteLogger = MyLogger // Type alias
 
 type MyLogger struct {
 	l *log.Logger
