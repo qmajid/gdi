@@ -13,9 +13,7 @@ type idi struct {
 }
 
 func INew() *idi {
-	s := new(idi)
-	s.m = make(map[string]iservice)
-	return s
+	return &idi{m: make(map[string]iservice)}
 }
 
 func (s *idi) IProvide(inst iservice) *idi {
