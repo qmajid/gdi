@@ -13,7 +13,7 @@ func main() {
 	sa := di.Invoke[service.A](d)
 	sa.Print(1234)
 
-	l := di.Invoke[service.MyLogger](d)
+	l := di.Invoke[service.ConcreteLogger](d)
 	l.Info("hello di")
 
 	//-------------Interface DI

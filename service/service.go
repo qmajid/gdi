@@ -33,6 +33,8 @@ type ILogger interface {
 	Error(s string)
 }
 
+type ConcreteLogger = MyLogger
+
 type MyLogger struct {
 	l *log.Logger
 }
