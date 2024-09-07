@@ -24,6 +24,7 @@ func main() {
 	a := new(serviceA)
 	l2 := service.NewLogger()
 	d2.IProvide(a).IProvide(l2)
+	
 	si := d2.IInvoke(a.Name()).(*serviceA)
 	si.Print(1024)
 	li := d2.IInvoke(l2.Name()).(service.ILogger)
